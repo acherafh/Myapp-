@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>محرر الأكواد</title>
+  <style>
+    body { display: flex; flex-direction: column; height: 100vh; margin: 0; font-family: sans-serif; }
+    textarea { width: 100%; height: 30%; padding: 10px; font-family: monospace; }
+    iframe { flex: 1; width: 100%; border: none; }
+    h2 { background: #333; color: white; padding: 10px; margin: 0; }
+  </style>
+</head>
+<body>
+  <h2>محرر الأكواد - HTML / CSS / JS</h2>
+
+  <textarea id="html" placeholder="HTML هنا"></textarea>
+  <textarea id="css" placeholder="CSS هنا"></textarea>
+  <textarea id="js" placeholder="JavaScript هنا"></textarea>
+
+  <iframe id="preview"></iframe>
+
+  <script>
+    const htmlInput = document.getElementById("html");
+    const cssInput = document.getElementById("css");
+    const jsInput = document.getElementById("js");
+    const preview = document.getElementById("preview");
+
+    function updatePreview() {
+      const html = htmlInput.value;
+      const css = `<style>cssInput.value</style>`;
+      const js = `<script>{jsInput.value}<\/script>`;
+      const output = html + css + js;
+      preview.srcdoc = output;
+    }
+[7/‏8 10:45] ChatGPT: htmlInput.addEventListener("input", updatePreview);
+    cssInput.addEventListener("input", updatePreview);
+    jsInput.addEventListener("input", updatePreview);
+
+    updatePreview(); // أول عرض
+  </script>
+</body>
+</html>
